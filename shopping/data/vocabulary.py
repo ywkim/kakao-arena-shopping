@@ -70,28 +70,6 @@ class Vocabulary:
         return vocab
 
     @classmethod
-    def from_pretrained_glove(
-            cls,
-            embedding_path: str,
-            oov_token: str,
-            additional_trainable_tokens: Optional[List[str]] = None,
-    ) -> "Vocabulary":
-        with open(embedding_path) as f:
-            vocab_list = [line.split()[0] for line in f]
-        logger.info("Found %s word vectors.", len(vocab_list))
-
-        if additional_trainable_tokens:
-            vocab_list = additional_trainable_tokens + vocab_list
-
-        if oov_token:
-            vocab_list = [oov_token] + vocab_list
-
-        vocab_list = text_encoder.RESERVED_TOKENS + vocab_list
-
-        vocab = cls(vocab_list, oov_token=oov_token)
-        return vocab
-
-    @classmethod
     def from_sentence_piece(cls,
                             model_path: str,
                             oov_token: str,
