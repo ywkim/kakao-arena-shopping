@@ -133,7 +133,7 @@ python avg_checkpoints.py \
 
 ### 예측 모델 생성
 
-불필요한 weights 를 제거해서 크기를 줄인 예측용 모델을 생성합니다.
+불필요한 Adam momentum 과 variance 를 제거한 예측용 checkpoint 를 생성합니다.
 
 ```
 python reduce_checkpoint_size.py \
