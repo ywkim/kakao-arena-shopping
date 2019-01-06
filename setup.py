@@ -8,7 +8,7 @@ from setuptools import find_packages, setup
 # Package meta-data.
 NAME = "shopping"
 DESCRIPTION = "Shopping"
-URL = "https://bitbucket.org/ywkim/shopping"
+URL = "https://github.com/ywkim/kakao-arena-shopping"
 EMAIL = "youngwook.kim@gmail.com"
 AUTHOR = "Youngwook Kim"
 REQUIRES_PYTHON = ">=3.6.0"
