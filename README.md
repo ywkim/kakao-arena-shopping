@@ -120,6 +120,28 @@ t2t-trainer \
   --schedule=train
 ```
 
+### 모델 Averaging
+
+최종 모델을 얻기 위해 5 개 checkpoints 의 평균을 구합니다.
+
+```
+python avg_checkpoints.py \
+  --checkpoints=19000,20000,21000,22000,23000 \
+  --prefix=~/t2t_train/hierarchical_shopping/lstm/base_batch_8k_hidden_1k_8gpu/model.ckpt- \
+  --output_path=~/t2t_train/hierarchical_shopping/lstm/base_batch_8k_hidden_1k_8gpu/averaged.19-23k.ckpt
+```
+
+### 예측 모델 생성
+
+불필요한 weights 를 제거해서 크기를 줄인 예측용 모델을 생성합니다.
+
+```
+python reduce_checkpoint_size.py \
+  --input_path=~/t2t_train/hierarchical_shopping/lstm/base_batch_8k_hidden_1k_8gpu/averaged.19-23k.ckpt-0 \
+  --output_path=~/t2t_train_reduced/hierarchical_shopping/lstm/base_batch_8k_hidden_1k_8gpu/averaged.19-23k.ckpt-0
+```
+
+
 ### 예측
 
 `predict.py` 는 훈련된 모델을 이용해서 예측하고 제출용 TSV 를 만드는 스크립트입니다.
@@ -131,8 +153,8 @@ python predict.py \
   --problem=hierarchical_shopping_public_lb \
   --model=lstm_seq2seq_attention_bidirectional_encoder \
   --hparams_set=lstm_base_batch_8k_hidden_1k \
-  --checkpoint_path=~/t2t_train/hierarchical_shopping/lstm/base_batch_8k_hidden_1k_8gpu/model.ckpt-19000 \
-  --output_file=hierarchical.lstm.base_batch_8k_hidden_1k_8gpu.19K.public.tsv
+  --checkpoint_path=~/t2t_train_reduced/hierarchical_shopping/lstm/base_batch_8k_hidden_1k_8gpu/averaged.19-23k.ckpt-0 \
+  --output_file=hierarchical.lstm.base_batch_8k_hidden_1k_8gpu.19-23k.public.tsv
 ```
 
 훈련된 모델과 중간 파일들은 GCS 에서 받을 수 있으며, 다음과 같이 private leaderboard 에 제출된 결과를 재현할 수 있습니다.
@@ -143,6 +165,6 @@ python predict.py \
   --problem=hierarchical_shopping_private_lb \
   --model=lstm_seq2seq_attention_bidirectional_encoder \
   --hparams_set=lstm_base_batch_8k_hidden_1k \
-  --checkpoint_path=gs://kakao-arena/t2t_train_reduced/hierarchical_shopping/lstm/base_batch_8k_hidden_1k_8gpu/model.ckpt-19000 \
-  --output_file=hierarchical.lstm.base_batch_8k_hidden_1k_8gpu.19k.private.tsv
+  --checkpoint_path=gs://kakao-arena/t2t_train/hierarchical_shopping/lstm/base_batch_8k_hidden_1k_8gpu/averaged.19-23k.ckpt-0 \
+  --output_file=hierarchical.lstm.base_batch_8k_hidden_1k_8gpu.19-23k.private.tsv
 ```
