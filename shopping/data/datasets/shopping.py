@@ -409,7 +409,7 @@ class Shopping(text_problems.Text2ClassProblem):
     @property
     def augmentation_multiplier(self):
         """1 means no augmentation."""
-        return 8
+        return 1
 
     def _task_id_to_input_file(self, tmp_dir, task_id):
         idx = task_id % len(self.TRAIN_FILES)
