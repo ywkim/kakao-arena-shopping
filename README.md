@@ -10,7 +10,7 @@
 먼저 Python 3.6 이상이 설치되어있는지 확인하고 다음과 같이 필요한 패키지를 설치해주세요.
 
 ```
-pip install -e .[tensorflow_gpu]
+pip install -r requirements.txt
 ```
 
 ### TSV 로 변환
