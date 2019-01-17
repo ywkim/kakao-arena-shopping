@@ -75,7 +75,7 @@ t2t-datagen \
   --t2t_usr_dir=~/kakao-arena-shopping/shopping \
   --tmp_dir=~/t2t_tmp/shopping \
   --data_dir=~/t2t_data/shopping \
-  --problem=shopping
+  --problem=hierarchical_shopping
 ```
 
 * `t2t_usr_dir`: 이 프로젝트의 `shopping` 모듈의 경로
@@ -112,7 +112,7 @@ t2t-trainer \
   --t2t_usr_dir=~/kakao-arena-shopping/shopping \
   --data_dir=~/t2t_data/shopping \
   --output_dir=~/t2t_train/hierarchical_shopping/lstm/base_batch_8k_hidden_1k_8gpu \
-  --problem=shopping \
+  --problem=hierarchical_shopping \
   --model=lstm_seq2seq_attention_bidirectional_encoder \
   --hparams_set=lstm_base_batch_8k_hidden_1k \
   --train_steps=200000 \
