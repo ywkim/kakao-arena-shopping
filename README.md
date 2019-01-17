@@ -47,7 +47,7 @@ shuf normalized.txt > normalized_shuffled.txt
 ### SentencePiece 훈련
 
 [SentencePiece](https://github.com/google/sentencepiece) 는 문장을 토큰으로 나누어주는 tokenizer 입니다.
-다음과 같이 SentencePiece 를 훈련합니다.
+SentencePiece 를 설치한 후 다음과 같이 tokenizer 를 훈련합니다.
 
 ```
 spm_train --input=normalized_shuffled.txt \
