@@ -72,7 +72,7 @@ TensorFlow 모델 훈련은 [T2T](https://github.com/tensorflow/tensor2tensor) �
 
 ```
 t2t-datagen \
-  --t2t_usr_dir=~/shopping/shopping \
+  --t2t_usr_dir=~/kakao-arena-shopping/shopping \
   --tmp_dir=~/t2t_tmp/shopping \
   --data_dir=~/t2t_data/shopping \
   --problem=shopping
@@ -89,7 +89,7 @@ t2t-datagen \
 
 ```
 t2t-datagen \
-  --t2t_usr_dir=~/shopping/shopping \
+  --t2t_usr_dir=~/kakao-arena-shopping/shopping \
   --tmp_dir=~/t2t_tmp/shopping \
   --data_dir=~/t2t_data/hierarchical_shopping_public_lb \
   --problem=hierarchical_shopping_public_lb
@@ -97,7 +97,7 @@ t2t-datagen \
 
 ```
 t2t-datagen \
-  --t2t_usr_dir=~/shopping/shopping \
+  --t2t_usr_dir=~/kakao-arena-shopping/shopping \
   --tmp_dir=~/t2t_tmp/shopping \
   --data_dir=~/t2t_data/hierarchical_shopping_private_lb \
   --problem=hierarchical_shopping_private_lb
@@ -109,7 +109,7 @@ t2t-datagen \
 
 ```
 t2t-trainer \
-  --t2t_usr_dir=~/shopping/shopping \
+  --t2t_usr_dir=~/kakao-arena-shopping/shopping \
   --data_dir=~/t2t_data/shopping \
   --output_dir=~/t2t_train/hierarchical_shopping/lstm/base_batch_8k_hidden_1k_8gpu \
   --problem=shopping \
