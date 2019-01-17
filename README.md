@@ -73,10 +73,10 @@ TensorFlow 모델 훈련은 [T2T](https://github.com/tensorflow/tensor2tensor) �
 ```
 mkdir -p ~/t2t_tmp/shopping
 mkdir -p ~/t2t_data/shopping
-mv *.chunk.0[0-9] id.dev.txt ~/t2t_tmp/shopping
+mv *.chunk.0[0-9] id.dev.txt ~/t2t_tmp/shopping/
 wget https://storage.googleapis.com/kakao-arena/t2t_data/hierarchical_shopping_private_lb/labels.json
-mv labels.json sentpiece.model ~/t2t_data/shopping
-mv cate1.json ~/t2t_data/shopping/category.json
+cp labels.json sentpiece.model ~/t2t_data/shopping/
+cp cate1.json ~/t2t_data/shopping/category.json
 
 t2t-datagen \
   --t2t_usr_dir=~/kakao-arena-shopping/shopping \
@@ -95,6 +95,10 @@ t2t-datagen \
 그리고 다음과 같이 public/private leaderboard 를 위한 데이터도 생성합니다.
 
 ```
+mkdir -p ~/t2t_data/hierarchical_shopping_public_lb
+cp labels.json sentpiece.model ~/t2t_data/hierarchical_shopping_public_lb/
+cp cate1.json ~/t2t_data/hierarchical_shopping_public_lb/category.json
+
 t2t-datagen \
   --t2t_usr_dir=~/kakao-arena-shopping/shopping \
   --tmp_dir=~/t2t_tmp/shopping \
@@ -103,6 +107,10 @@ t2t-datagen \
 ```
 
 ```
+mkdir -p ~/t2t_data/hierarchical_shopping_private_lb
+cp labels.json sentpiece.model ~/t2t_data/hierarchical_shopping_private_lb/
+cp cate1.json ~/t2t_data/hierarchical_shopping_private_lb/category.json
+
 t2t-datagen \
   --t2t_usr_dir=~/kakao-arena-shopping/shopping \
   --tmp_dir=~/t2t_tmp/shopping \
