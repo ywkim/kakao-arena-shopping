@@ -157,7 +157,16 @@ python predict.py \
   --output_file=hierarchical.lstm.base_batch_8k_hidden_1k_8gpu.19-23k.public.tsv
 ```
 
-훈련된 모델과 중간 파일들은 GCS 에서 받을 수 있으며, 다음과 같이 private leaderboard 에 제출된 결과를 재현할 수 있습니다.
+훈련된 모델과 중간 파일들은 GCS 에 있습니다.
+
+* [averaged.19-23k.ckpt-0.meta](https://storage.googleapis.com/kakao-arena/t2t_train/hierarchical_shopping/lstm/base_batch_8k_hidden_1k_8gpu/averaged.19-23k.ckpt-0.meta)
+* [averaged.19-23k.ckpt-0.index](https://storage.googleapis.com/kakao-arena/t2t_train/hierarchical_shopping/lstm/base_batch_8k_hidden_1k_8gpu/averaged.19-23k.ckpt-0.index)
+* [averaged.19-23k.ckpt-0.data-00000-of-00001](https://storage.googleapis.com/kakao-arena/t2t_train/hierarchical_shopping/lstm/base_batch_8k_hidden_1k_8gpu/averaged.19-23k.ckpt-0.data-00000-of-00001)
+* [sentpiece.model](https://storage.googleapis.com/kakao-arena/t2t_data/hierarchical_shopping_private_lb/sentpiece.model)
+* [category.json](https://storage.googleapis.com/kakao-arena/t2t_data/hierarchical_shopping_private_lb/category.json)
+* [labels.json](https://storage.googleapis.com/kakao-arena/t2t_data/hierarchical_shopping_private_lb/labels.json)
+
+다음과 같이 private leaderboard 에 제출된 결과를 재현할 수 있습니다.
 
 ```
 python predict.py \
