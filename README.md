@@ -172,15 +172,6 @@ python predict.py \
   --output_file=hierarchical.lstm.base_batch_8k_hidden_1k_8gpu.19-23k.public.tsv
 ```
 
-훈련된 모델과 중간 파일들은 GCS 에 있습니다.
-
-* [averaged.19-23k.ckpt-0.meta](https://storage.googleapis.com/kakao-arena/t2t_train/hierarchical_shopping/lstm/base_batch_8k_hidden_1k_8gpu/averaged.19-23k.ckpt-0.meta)
-* [averaged.19-23k.ckpt-0.index](https://storage.googleapis.com/kakao-arena/t2t_train/hierarchical_shopping/lstm/base_batch_8k_hidden_1k_8gpu/averaged.19-23k.ckpt-0.index)
-* [averaged.19-23k.ckpt-0.data-00000-of-00001](https://storage.googleapis.com/kakao-arena/t2t_train/hierarchical_shopping/lstm/base_batch_8k_hidden_1k_8gpu/averaged.19-23k.ckpt-0.data-00000-of-00001)
-* [sentpiece.model](https://storage.googleapis.com/kakao-arena/t2t_data/hierarchical_shopping_private_lb/sentpiece.model)
-* [category.json](https://storage.googleapis.com/kakao-arena/t2t_data/hierarchical_shopping_private_lb/category.json)
-* [labels.json](https://storage.googleapis.com/kakao-arena/t2t_data/hierarchical_shopping_private_lb/labels.json)
-
 다음과 같이 private leaderboard 에 제출된 결과를 재현할 수 있습니다.
 
 ```
@@ -192,3 +183,24 @@ python predict.py \
   --checkpoint_path=gs://kakao-arena/t2t_train/hierarchical_shopping/lstm/base_batch_8k_hidden_1k_8gpu/averaged.19-23k.ckpt-0 \
   --output_file=hierarchical.lstm.base_batch_8k_hidden_1k_8gpu.19-23k.private.tsv
 ```
+
+훈련된 모델과 중간 파일들은 GCS 에 있습니다.
+만약 GCS 를 사용하지 않을 경우 필요한 파일들을 내려받은 후 경로를 재지정해주어야 합니다.
+
+* `data_dir`: TFRecord 파일이 있는 디렉토리입니다. 아래 파일들을 복사해야두어야 합니다.
+  * [category.json](https://storage.googleapis.com/kakao-arena/t2t_data/hierarchical_shopping_private_lb/category.json)
+  * [labels.json](https://storage.googleapis.com/kakao-arena/t2t_data/hierarchical_shopping_private_lb/labels.json)
+  * [sentpiece.model](https://storage.googleapis.com/kakao-arena/t2t_data/hierarchical_shopping_private_lb/sentpiece.model)
+  * [hierarchical_shopping_private_lb-test-00000-of-00002](https://storage.googleapis.com/kakao-arena/t2t_data/hierarchical_shopping_private_lb/hierarchical_shopping_private_lb-test-00000-of-00002)
+  * [hierarchical_shopping_private_lb-test-00001-of-00002](https://storage.googleapis.com/kakao-arena/t2t_data/hierarchical_shopping_private_lb/hierarchical_shopping_private_lb-test-00001-of-00002)
+* `checkpoint_path`: 훈련된 모델의 checkpoint 경로입니다. 아래 파일들을 임의의 디렉토리에 복사하고, `checkpoint_path` 를 해당 디렉토리명 + `/averaged.19-23k.ckpt-0` 로 지정해야 합니다.
+  * [averaged.19-23k.ckpt-0.meta](https://storage.googleapis.com/kakao-arena/t2t_train/hierarchical_shopping/lstm/base_batch_8k_hidden_1k_8gpu/averaged.19-23k.ckpt-0.meta)
+  * [averaged.19-23k.ckpt-0.index](https://storage.googleapis.com/kakao-arena/t2t_train/hierarchical_shopping/lstm/base_batch_8k_hidden_1k_8gpu/averaged.19-23k.ckpt-0.index)
+  * [averaged.19-23k.ckpt-0.data-00000-of-00001](https://storage.googleapis.com/kakao-arena/t2t_train/hierarchical_shopping/lstm/base_batch_8k_hidden_1k_8gpu/averaged.19-23k.ckpt-0.data-00000-of-00001)
+* `output_file`: 생성할 TSV 파일 경로
+
+나머지 인자들은 변경할 필요가 없습니다.
+
+* `problem`: 데이터셋 이름
+* `model`: 모델 이름
+* `hparams_set`: Hyperparameter
