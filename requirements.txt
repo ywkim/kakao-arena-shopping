@@ -59,7 +59,7 @@ six==1.12.0
 sympy==1.3
 -e git+https://github.com/ywkim/tensor2tensor.git@94c14df3c39fc8fabf229e8d5dd7d4b6b1956d25#egg=tensor2tensor
 tensorboard==1.12.2
-tensorflow-gpu==1.12.0
+tensorflow-gpu==2.6.4
 tensorflow-metadata==0.9.0
 tensorflow-probability==0.5.0
 termcolor==1.1.0
