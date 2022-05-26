@@ -20,7 +20,7 @@ REQUIRED = ["tensor2tensor>=1.11.0,<2.0.0", "sentencepiece", "tqdm"]
 # What packages are optional?
 EXTRAS = {
     "tensorflow": ["tensorflow>=1.12.0,<2.0.0"],
-    "tensorflow_gpu": ["tensorflow-gpu>=1.12.0,<2.0.0"]
+    "tensorflow_gpu": ["tensorflow-gpu>=1.12.0,<3.0.0"]
 }
 
 here = os.path.abspath(os.path.dirname(__file__))
