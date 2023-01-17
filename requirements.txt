@@ -11,7 +11,7 @@ chardet==3.0.4
 click==7.0
 enum34==1.1.6
 flask==1.0.2
-future==0.17.1
+future==0.18.3
 futures==3.1.1
 gast==0.2.1.post0
 gevent==1.4.0
