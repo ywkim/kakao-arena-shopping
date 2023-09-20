@@ -14,7 +14,7 @@ flask==1.0.2
 future==0.17.1
 futures==3.1.1
 gast==0.2.1.post0
-gevent==1.4.0
+gevent==23.9.0
 google-api-python-client==1.7.7
 google-auth-httplib2==0.0.3
 google-auth==1.6.2
