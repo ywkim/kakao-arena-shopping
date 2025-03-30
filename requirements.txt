@@ -21,7 +21,7 @@ google-auth==1.6.2
 googleapis-common-protos==1.5.6
 greenlet==0.4.15 ; platform_python_implementation == 'CPython'
 grpcio==1.17.1
-gunicorn==19.9.0
+gunicorn==23.0.0
 gym==0.10.9
 h5py==2.9.0
 httplib2==0.12.0
