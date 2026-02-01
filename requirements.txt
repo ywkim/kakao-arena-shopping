@@ -43,7 +43,7 @@ mypy==0.650
 numpy==1.15.4
 oauth2client==4.1.3
 pluggy==0.8.1
-protobuf==3.6.1
+protobuf==6.33.5
 py==1.7.0
 pyasn1-modules==0.2.3
 pyasn1==0.4.5
@@ -54,7 +54,7 @@ pytz==2018.9
 requests==2.21.0
 rsa==4.0
 scipy==1.2.0
-sentencepiece==0.1.6
+sentencepiece==0.2.1
 six==1.12.0
 sympy==1.3
 -e git+https://github.com/ywkim/tensor2tensor.git@94c14df3c39fc8fabf229e8d5dd7d4b6b1956d25#egg=tensor2tensor
